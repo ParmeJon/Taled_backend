@@ -3,7 +3,8 @@ class CreatePosts < ActiveRecord::Migration[5.2]
     create_table :posts do |t|
       t.string :title
       t.string :content
-      t.integer :post_id
+      t.integer :trip_id
+      t.string :geolocation
 
       t.timestamps
     end
