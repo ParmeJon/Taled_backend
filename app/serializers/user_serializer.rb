@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :first_name, :last_name, :active
+  attributes :id, :email, :first_name, :last_name, :active, :profile_image
 
   # has_one_attached :profile_image, dependent: :destroy
   has_many :trips, dependent: :destroy
