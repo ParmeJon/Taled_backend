@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_182031) do
   create_table "trips", force: :cascade do |t|
     t.string "title"
     t.integer "user_id"
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -4,6 +4,6 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, presence: true
 
   has_one_attached :profile_image
-  has_many :trips
-  has_many :posts, through: :trips
+  has_many :trips, dependent: :destroy
+  has_many :posts, through: :trips, dependent: :destroy
 end

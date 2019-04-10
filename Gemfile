@@ -19,6 +19,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -46,6 +47,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "jwt", "~> 2.1"
 
-gem "active_model_serializers", "~> 0.10.9"
+gem "active_model_serializers", "~> 0.10.0"
 
 gem "faker", "~> 1.9"
+
+gem "aws-sdk-s3"

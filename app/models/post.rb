@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
-  has_many_attached :post_images
+  has_one_attached :post_image
   belongs_to :trip
 end
