@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :email, :first_name, :last_name, :active, :profile_image, :trips, :posts
+  attributes :id, :email, :first_name, :last_name, :active, :profile_image, :trips, :posts, :friends
 
 
   def profile_image
@@ -8,6 +8,13 @@ class UserSerializer < ActiveModel::Serializer
       image_url: self.object.profile_image.blob.service_url
     }
     end
+  end
+
+  def friends
+    @approved_friendships = self.object.friendships.map{|friendship| friendship.approve_status}
+    return {
+      approved_friends: @approved_friendships
+    }
   end
 
   # has_one_attached :profile_image, dependent: :destroy

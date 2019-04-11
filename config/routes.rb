@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :show, :update]
       resources :trips
       resources :posts
+      resources :friendships
       post '/signup', to: 'users#create'
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
