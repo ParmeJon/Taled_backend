@@ -1,3 +1,5 @@
+require 'dotenv/load'
+
 class Api::V1::AuthController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
@@ -14,7 +16,7 @@ class Api::V1::AuthController < ApplicationController
   def show
     jwt = request.headers['Authorization']
     without = jwt.split('Bearer ')
-    id = JWT.decode(without[1], "pl34s3")[0]["user_id"]
+    id = JWT.decode(without[1], ENV['SECRET_TOKEN'])[0]["user_id"]
     @user = User.find(id)
     render json: {user: UserSerializer.new(@user)}
   end

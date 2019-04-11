@@ -1,8 +1,10 @@
+require 'dotenv/load'
+
 class ApplicationController < ActionController::API
   before_action :authorized
 
   def encode_token(payload)
-    JWT.encode(payload, 'pl34s3')
+    JWT.encode(payload, ENV['SECRET_TOKEN'])
   end
 
   def auth_header
@@ -13,7 +15,7 @@ class ApplicationController < ActionController::API
     if auth_header
       token = auth_header.split(' ')[1]
       begin
-        JWT.decode(token, 'pl34s3', true, algorithm: 'HS256')
+        JWT.decode(token, ENV['SECRET_TOKEN'], true, algorithm: 'HS256')
 
       rescue JWT::DecodeError
         nil
@@ -33,7 +35,7 @@ class ApplicationController < ActionController::API
   end
 
   def authorized
-    
+
     render json: { message: 'Please log in'}, status: :unauthorized unless logged_in?
   end
 end
