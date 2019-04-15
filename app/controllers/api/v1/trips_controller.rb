@@ -13,6 +13,18 @@ class Api::V1::TripsController < ApplicationController
     render json: {user: UserSerializer.new(@user)}
   end
 
+  def show
+    @trip = Trip.find(params[:id])
+    jwt = request.headers['Authorization']
+    without = jwt.split('Bearer ')
+    id = JWT.decode(without[1], ENV['SECRET_TOKEN'])[0]["user_id"]
+    if id === @trip.user_id
+      render json: {trip: TripSerializer.new(@trip)}
+    else
+      render json: { message: 'Invalid user for trip'}, status: :unauthorized
+    end
+  end
+
   def update
     @trip = Trip.find(params[:id])
     @trip.update(trip_params)
