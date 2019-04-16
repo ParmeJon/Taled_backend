@@ -25,6 +25,15 @@ class Api::V1::TripsController < ApplicationController
     end
   end
 
+  def current_trip
+    jwt = request.headers['Authorization']
+    without = jwt.split('Bearer ')
+    id = JWT.decode(without[1], ENV['SECRET_TOKEN'])[0]["user_id"]
+    @trips = Trip.select{|trip| trip.user_id === 1 && !trip.completed }
+    render json: {trip: TripSerializer.new(@trips.last)}
+
+  end
+
   def update
     @trip = Trip.find(params[:id])
     @trip.update(trip_params)
