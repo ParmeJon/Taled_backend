@@ -19,6 +19,8 @@ class UserSerializer < ActiveModel::Serializer
 
   # has_one_attached :profile_image, dependent: :destroy
   has_many :trips
+  has_many :friendships
+  has_many :friends, through: :friendships
   has_many :posts, through: :trips
   # has_many_attached :forms, through: :posts, dependent: :destroy
 end
