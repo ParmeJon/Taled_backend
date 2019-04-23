@@ -2,6 +2,7 @@ class Api::V1::RequestfeedsController < ApplicationController
 skip_before_action :authorized, only: [:create]
 
   def index
+    # grab onlt the unapproved ones
     @requestfeeds = Requestfeed.all
     render json: @requestfeeds
   end

@@ -1,8 +1,6 @@
 class FriendshipsChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
-    requestfeed = Requestfeed.find(params[:requestfeed])
-    stream_for requestfeed
+    stream_from "friendships_channel"
   end
 
   def unsubscribed

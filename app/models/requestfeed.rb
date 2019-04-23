@@ -1,3 +1,3 @@
 class Requestfeed < ApplicationRecord
-  has_many :friendships
+  # has_many :friendships
 end

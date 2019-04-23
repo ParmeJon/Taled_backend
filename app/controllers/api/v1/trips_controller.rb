@@ -30,8 +30,11 @@ class Api::V1::TripsController < ApplicationController
     without = jwt.split('Bearer ')
     id = JWT.decode(without[1], ENV['SECRET_TOKEN'])[0]["user_id"]
     @trips = Trip.select{|trip| trip.user_id === id && !trip.completed }
+    if @trips
     render json: {trip: TripSerializer.new(@trips.last)}
-
+    else
+      render json: { message: 'no current trip atm'}
+    end
   end
 
   def update
