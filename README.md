@@ -62,4 +62,4 @@ rails s
 
 ## Created By
 
-Jonathan Chan github.com/ParmeJon
+Jonathan Chan [Github](http://www.github.com/ParmeJon)
