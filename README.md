@@ -45,12 +45,13 @@ rails s
 
 ### User Authentication
 - JWT token decrypted and encrypted with .env SECRET TOKEN
+- Password encryped with BCrypt gem.
 
 ### Action Cable
-- action cable implemented to facilitate receiving a friend request without refresh upon friendship creation.
+- Action Cable implemented to facilitate receiving a friend request without refresh upon friendship creation.
 
 ### Serializers
-- Serializers implemented to optimize information transfer for a certain User.
+- Serializers implemented to optimize information transfer for a User, Trip, and Post Models.
 
 ### Self Referential Table
 - Used to facilitate User having many other Users(Friends) through Friendships.
