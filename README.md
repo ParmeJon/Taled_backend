@@ -6,6 +6,10 @@ TaleD is a blog geared towards solo travelers. With the increase of solo travels
 
 https://github.com/ParmeJon/Taled_frontend
 
+## Demo Link
+
+https://www.youtube.com/watch?v=xBEjNWfyQH4
+
 ## Installation
 
 ```
